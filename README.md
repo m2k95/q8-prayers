@@ -1,16 +1,16 @@
 # Kuwait Prayer Times
 Kuwait Prayer Times CDN using https://aladhan.com API services
 
-## Usage
-Link Kuwait Prayer Times CSS
+## Getting Started
+Copy-paste the stylesheet `<link>` into your `<head>` to load our CSS
 
 `<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.css">`
 
-Include a script tag before the closing body
+Include our JavaScript before the closing body
 
 `<script src="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.js"></script>`
 
-Create a div element in your project
+Create a div element with id of q8prayers in your project
 
 `<div id="q8prayers"></div>`
 
