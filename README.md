@@ -4,11 +4,11 @@ Kuwait Prayer Times CDN using https://aladhan.com API services
 ## Usage
 Link Kuwait Prayer Times CSS
 
-`<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers/dist/all.min.css">`
+`<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.css">`
 
 Include a script tag before the closing body
 
-`<script src="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers/dist/all.min.js"></script>`
+`<script src="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.js"></script>`
 
 Create a div element in your project
 
