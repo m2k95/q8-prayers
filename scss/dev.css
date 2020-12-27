@@ -34,3 +34,6 @@
         text-align: right; }
   #q8prayers table, #q8prayers th, #q8prayers td {
     border-collapse: collapse; }
+  #q8prayers .q8prayers-error {
+    color: #af0000;
+    font-size: small; }

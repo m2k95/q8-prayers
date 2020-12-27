@@ -89,15 +89,15 @@ async function fetchPrayers(today, lang){
       return prayers
 
     }else{
-      var message = 'Please try again later.'
-      if(lang === 'ar') message = 'الرجاء المحاولة لاحقًا.'
+      var message = 'Please try again later'
+      if(lang === 'ar') message = 'الرجاء المحاولة لاحقًا'
       return { error: true, message }
     }
 
   } catch (error) {
     console.error(error)
-    var message = 'Please try again later.'
-    if(lang === 'ar') message = 'الرجاء المحاولة لاحقًا.'
+    var message = 'Please try again later'
+    if(lang === 'ar') message = 'الرجاء المحاولة لاحقًا'
     return { error: true, message }
   }
 }
