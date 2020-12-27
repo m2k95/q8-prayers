@@ -33,6 +33,7 @@ Create a div element with an id of q8prayers in your project
     <title>Q8 Prayer Times Starter Template</title>
   </head>
   <body>
+    <!-- Q8 Prayer Times Element -->
     <div id="q8prayers" data-lang="ar"></div>
 
     <!-- Q8 Prayer Times JavaScript -->
