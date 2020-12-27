@@ -1,4 +1,5 @@
 # Kuwait Prayer Times
+Kuwait Prayer Times CDN using https://aladhan.com API services
 
 ## Usage
 Link Kuwait Prayer Times CSS
@@ -15,4 +16,4 @@ Create a div element in your project
 
 ## Options
 - `data-lang="ar"` to display prayer times in Arabic *defualts to en*
-- `data-width="200"` to set thee witdh of the table (in pixels) *defaults to 150*
+- `data-width="200"` to set the witdh of the table (in pixels) *defaults to 150*
