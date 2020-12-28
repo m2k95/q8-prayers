@@ -18,8 +18,12 @@
     }
   
     th{
-      text-align: left;
+      text-align: start;
       color: hsl(0, 0%, 50%);
+    }
+
+    td{
+      text-align: end;
     }
   
     tr:nth-child(1){
@@ -32,9 +36,6 @@
     &[dir='rtl']{
       font-family: Amiri;
       line-height: 1.3;
-      th{
-        text-align: right;
-      }
     }
   }
 
