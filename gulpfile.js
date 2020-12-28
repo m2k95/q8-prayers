@@ -38,7 +38,6 @@ gulp.task('sass-dev', async function(){
   gulp.src('./scss/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(rename("dev.css"))
-    .pipe(header(banner, {pkg: pkg}))
     .pipe(gulp.dest('./scss'));
 });
 
@@ -62,7 +61,6 @@ gulp.task('scripts-dev', async function(){
   .pipe(concat('dev.js'))
   .pipe(ignore.exclude(['**/*.map']))
   .on('error', function(err){ gutil.log(gutil.colors.red('[Error]'), err.toString()); })
-  .pipe(header(banner, {pkg: pkg}))
   .pipe(gulp.dest('./js'))
 });
 
