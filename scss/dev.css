@@ -22,16 +22,16 @@
       padding: 5px;
       font-size: .8rem; }
     #q8prayers table th {
-      text-align: left;
+      text-align: start;
       color: gray; }
+    #q8prayers table td {
+      text-align: end; }
     #q8prayers table tr:nth-child(1) th {
       text-align: center;
       font-size: 1rem; }
     #q8prayers table[dir='rtl'] {
       font-family: Amiri;
       line-height: 1.3; }
-      #q8prayers table[dir='rtl'] th {
-        text-align: right; }
   #q8prayers table, #q8prayers th, #q8prayers td {
     border-collapse: collapse; }
   #q8prayers .q8prayers-error {
