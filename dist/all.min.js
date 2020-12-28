@@ -1,5 +1,5 @@
 /**
- * q8-prayertimes v1.0.0
+ * q8-prayertimes v1.0.1
  * @link https://github.com/mymk95/q8-prayers
  *
  * Kuwait Prayer Times CDN
