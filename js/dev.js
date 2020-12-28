@@ -1,10 +1,3 @@
-/**
- * q8-prayertimes v1.0.0
- * @link https://github.com/mymk95/q8-prayers
- *
- * Kuwait Prayer Times CDN
- * Written by Mohammad AlFailakawi <m.filkawi@gmail.com>
- */
 String.prototype.toArabicNumbers= function(){
   var id= ['٠', '١', '٢', '٣', '٤' ,'٥', '٦', '٧', '٨', '٩']
   return this.replace(/[0-9]/g, function(w){
