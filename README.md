@@ -1,6 +1,8 @@
 # Kuwait Prayer Times
 Kuwait Prayer Times CDN based on https://aladhan.com API services
 
+Demo [link](https://prayers-demo.mymk95.vercel.app/)
+
 ## Getting Started
 Copy-paste the stylesheet `<link>` into your `<head>` to load our CSS
 
