@@ -1,6 +1,8 @@
 # Kuwait Prayer Times
 Kuwait Prayer Times CDN based on https://aladhan.com API services
 
+Amiri font used for Arabic text from https://www.amirifont.org
+
 Demo [link](https://prayers-demo.mymk95.vercel.app/)
 
 ## Getting Started
