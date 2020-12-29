@@ -31,7 +31,8 @@ async function fetchPrayers(today, lang){
             name: 'العِشاء',
             time: `${reformatDate(lang, Isha).toArabicNumbers()}`
           },
-          Date: today.toArabicNumbers()
+          Date: today.toArabicNumbers(),
+          Title: 'أوقات الصلاة في الكويت'
         }
       }
       else{
@@ -56,7 +57,8 @@ async function fetchPrayers(today, lang){
             name: 'Isha',
             time: `${reformatDate(lang, Isha)}`
           },
-          Date: today
+          Date: today,
+          Title: 'Kuwait Prayer Times'
         }
       }
       
