@@ -1,5 +1,5 @@
 # Kuwait Prayer Times
-Kuwait Prayer Times CDN basde on https://aladhan.com API services
+Kuwait Prayer Times CDN based on https://aladhan.com API services
 
 ## Getting Started
 Copy-paste the stylesheet `<link>` into your `<head>` to load our CSS
