@@ -19,9 +19,11 @@
       color: gray; }
     #q8prayers table td {
       text-align: end; }
-    #q8prayers table tr:nth-child(1) th {
+    #q8prayers table tr:nth-child(1) th, #q8prayers table tr:nth-child(2) th {
       text-align: center;
       font-size: 1rem; }
+    #q8prayers table tr:nth-child(1) {
+      border: none; }
     #q8prayers table[dir='rtl'] {
       font-family: Amiri;
       line-height: 1.3; }
