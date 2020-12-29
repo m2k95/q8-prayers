@@ -26,11 +26,15 @@
       text-align: end;
     }
   
-    tr:nth-child(1){
+    tr:nth-child(1), tr:nth-child(2){
       th{
         text-align: center;
         font-size: 1rem;
       }
+    }
+
+    tr:nth-child(1){
+      border: none;
     }
 
     &[dir='rtl']{
