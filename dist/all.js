@@ -1,5 +1,5 @@
 /**
- * q8-prayertimes v1.0.1
+ * q8-prayertimes v1.0.2
  * @link https://github.com/mymk95/q8-prayers
  *
  * Kuwait Prayer Times CDN
@@ -57,7 +57,8 @@ async function fetchPrayers(today, lang){
             name: 'العِشاء',
             time: `${reformatDate(lang, Isha).toArabicNumbers()}`
           },
-          Date: today.toArabicNumbers()
+          Date: today.toArabicNumbers(),
+          Title: 'أوقات الصلاة في الكويت'
         }
       }
       else{
@@ -82,7 +83,8 @@ async function fetchPrayers(today, lang){
             name: 'Isha',
             time: `${reformatDate(lang, Isha)}`
           },
-          Date: today
+          Date: today,
+          Title: 'Kuwait Prayer Times'
         }
       }
       
@@ -122,6 +124,9 @@ fetchPrayers(today, lang).then(prayers =>{
     const table = document.createElement('table')
     if(lang === 'ar') table.setAttribute('dir', 'rtl')
   
+    const title_tr = document.createElement('tr')
+    const title_th = document.createElement('th')
+
     const date_tr = document.createElement('tr')
     const date_th = document.createElement('th')
   
@@ -145,6 +150,10 @@ fetchPrayers(today, lang).then(prayers =>{
     const isha_th = document.createElement('th')
     const isha_td = document.createElement('td')
   
+    title_th.setAttribute('colspan', '2')
+    title_th.innerHTML = prayers.Title
+    title_tr.appendChild(title_th)
+
     date_th.setAttribute('colspan', '2')
     date_th.innerHTML = prayers.Date
     date_tr.appendChild(date_th)
@@ -174,6 +183,7 @@ fetchPrayers(today, lang).then(prayers =>{
     isha_tr.appendChild(isha_th)
     isha_tr.appendChild(isha_td)
   
+    table.appendChild(title_tr)
     table.appendChild(date_tr)
     table.appendChild(fajr_tr)
     table.appendChild(dhuher_tr)
