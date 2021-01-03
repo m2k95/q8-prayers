@@ -22,6 +22,11 @@ fetchPrayers(today, lang).then(prayers =>{
     const title_th = document.createElement('th')
     const title_small = document.createElement('small')
 
+    const credits_tr = document.createElement('tr')
+    const credits_th = document.createElement('th')
+    const credits_small = document.createElement('small')
+    const credits_a = document.createElement('a')
+
     const date_tr = document.createElement('tr')
     const date_th = document.createElement('th')
   
@@ -49,6 +54,14 @@ fetchPrayers(today, lang).then(prayers =>{
     title_small.innerHTML = prayers.Title
     title_th.appendChild(title_small)
     title_tr.appendChild(title_th)
+  
+    credits_th.setAttribute('colspan', '2')
+    credits_a.setAttribute('href', 'https://github.com/mymk95/q8-prayers')
+    credits_a.setAttribute('target', '_blank')
+    credits_a.innerHTML = 'Q8 Prayer Times'
+    credits_small.appendChild(credits_a)
+    credits_th.appendChild(credits_small)
+    credits_tr.appendChild(credits_th)
 
     date_th.setAttribute('colspan', '2')
     date_th.innerHTML = prayers.Date
@@ -86,6 +99,7 @@ fetchPrayers(today, lang).then(prayers =>{
     table.appendChild(asr_tr)
     table.appendChild(maghrib_tr)
     table.appendChild(isha_tr)
+    table.appendChild(credits_tr)
   
     table.style.width = width + 'px'
   
