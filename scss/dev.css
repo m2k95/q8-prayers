@@ -27,6 +27,15 @@
     #q8prayers table[dir='rtl'] {
       font-family: Amiri;
       line-height: 1.3; }
+    #q8prayers table tr:nth-last-child(1) {
+      border: none; }
+      #q8prayers table tr:nth-last-child(1) th {
+        text-align: center; }
+        #q8prayers table tr:nth-last-child(1) th small a {
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+          text-decoration: none;
+          color: gray;
+          font-size: .5rem; }
   #q8prayers table, #q8prayers th, #q8prayers td {
     border-collapse: collapse; }
   #q8prayers .q8prayers-error {
