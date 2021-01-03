@@ -41,6 +41,23 @@
       font-family: Amiri;
       line-height: 1.3;
     }
+
+    tr:nth-last-child(1){
+      border: none;
+
+      th{
+        text-align: center;
+
+        small{
+          a{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-decoration: none;
+            color: hsl(0, 0%, 50%);
+            font-size: .5rem;
+          }
+        }
+      }
+    }
   }
 
   table, th, td{
