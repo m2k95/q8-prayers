@@ -20,6 +20,7 @@ fetchPrayers(today, lang).then(prayers =>{
   
     const title_tr = document.createElement('tr')
     const title_th = document.createElement('th')
+    const title_small = document.createElement('small')
 
     const date_tr = document.createElement('tr')
     const date_th = document.createElement('th')
@@ -45,7 +46,8 @@ fetchPrayers(today, lang).then(prayers =>{
     const isha_td = document.createElement('td')
   
     title_th.setAttribute('colspan', '2')
-    title_th.innerHTML = prayers.Title
+    title_small.innerHTML = prayers.Title
+    title_th.appendChild(title_small)
     title_tr.appendChild(title_th)
 
     date_th.setAttribute('colspan', '2')
