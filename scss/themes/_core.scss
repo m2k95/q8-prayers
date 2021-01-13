@@ -1,0 +1,28 @@
+&{
+  color: $prayerTimesColor;
+
+  table{    
+    tr{
+      border-color: $tableBorderColor;
+    }
+  
+    th{
+      color: $tableHeaderColor;
+    }
+  
+
+    tr:nth-last-child(1){
+      th{
+        small{
+          a{
+            color: $tableCreditsColor;
+          }
+        }
+      }
+    }
+  }
+
+  .q8prayers-error{
+    color: $errorMessageColor;
+  }  
+}
