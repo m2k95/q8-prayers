@@ -1,0 +1,9 @@
+#q8prayers.dark{
+  $prayerTimesColor: hsl(0, 0%, 85%);
+  $tableBorderColor: rgb(190, 190, 190);
+  $tableHeaderColor: rgb(190, 190, 190);
+  $tableCreditsColor: rgb(190, 190, 190);
+  $errorMessageColor: rgb(200, 0, 0);
+
+  @import './core';
+}
