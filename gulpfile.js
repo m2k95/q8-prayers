@@ -12,9 +12,10 @@ var pkg = require("./package.json");
 var banner = ["/**",
     " * <%= pkg.name %> v<%= pkg.version %>",
 	" * @link <%= pkg.homepage %>",
+	" * @repo <%= pkg.repository.url %>",
 	" *",
 	" * <%= pkg.description %>",
-	" * Written by <%= pkg.author %> <m.filkawi@gmail.com>",
+	" * Written by <%= pkg.author.name %> <<%= pkg.author.email %>>",
 	" */",
 	""].join("\n");
 
