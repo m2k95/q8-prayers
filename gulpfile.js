@@ -16,6 +16,7 @@ var banner = ["/**",
 	" *",
 	" * <%= pkg.description %>",
 	" * Written by <%= pkg.author.name %> <<%= pkg.author.email %>>",
+	" * License <%= pkg.license %>",
 	" */",
 	""].join("\n");
 
