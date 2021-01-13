@@ -1,14 +1,21 @@
 {
   "name": "q8-prayertimes",
   "version": "1.0.3",
-  "description": "Kuwait Prayer Times CDN",
+  "description": "Kuwait Prayer Times",
   "main": "index.js",
   "scripts": {
     "dev": "gulp",
     "build": "gulp build"
   },
-  "author": "Mohammad AlFailakawi",
+  "author": {
+    "name": "Mohammad AlFailakawi",
+    "email": "m.filkawi@gmail.com"
+  },
   "homepage": "https://github.com/mymk95/q8-prayers",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mymk95/q8-prayers"
+  },
   "license": "MIT",
   "devDependencies": {
     "gulp": "^4.0.2",
