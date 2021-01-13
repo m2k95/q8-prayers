@@ -1,9 +1,11 @@
 /**
- * q8-prayertimes v1.0.3
+ * q8-prayertimes v1.0.4
  * @link https://github.com/mymk95/q8-prayers
+ * @repo https://github.com/mymk95/q8-prayers
  *
- * Kuwait Prayer Times CDN
+ * Kuwait Prayer Times
  * Written by Mohammad AlFailakawi <m.filkawi@gmail.com>
+ * License MIT
  */
 String.prototype.toArabicNumbers= function(){
   var id= ['٠', '١', '٢', '٣', '٤' ,'٥', '٦', '٧', '٨', '٩']
@@ -110,17 +112,22 @@ const mm = String(today.getMonth() + 1).padStart(2, '0')
 const yyyy = today.getFullYear()
 today = dd + '-' + mm + '-' + yyyy
 
-var lang, width
+var lang, width, dark
 
 const prayerElement = document.querySelector('#q8prayers')
 prayerElement.getAttribute('data-lang') === 'ar' ? lang = 'ar' : lang = 'en'
 prayerElement.getAttribute('data-width') === null ? width = 150 : width = parseInt(prayerElement.getAttribute('data-width'))
+prayerElement.getAttribute('data-theme') === 'dark' ? dark = true : dark = false
 
 fetchPrayers(today, lang).then(prayers =>{
   if (prayers.error) {
     prayerElement.innerHTML = `<p class="q8prayers-error">${prayers.message}</p>`
 
   }else{
+    if(dark){
+      prayerElement.classList.add('dark')
+    }
+    
     const table = document.createElement('table')
     if(lang === 'ar') table.setAttribute('dir', 'rtl')
   
