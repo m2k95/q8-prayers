@@ -21,6 +21,7 @@ Create a div element with an id of q8prayers in your project
 ## Options
 - `data-lang="ar"` to display prayer times in Arabic *(defaults to en)*
 - `data-width="200"` to set the width (in pixels) of the table *(defaults to 150)*
+- `data-theme="dark"` to display prayer times in darkmode
 
 ## Starter Template
 ```html
