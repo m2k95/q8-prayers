@@ -18,6 +18,8 @@ Create a div element with an id of q8prayers in your project
 
 `<div id="q8prayers"></div>`
 
+> You can add more than one element in a single page
+
 ## Options
 - `data-lang="ar"` to display prayer times in Arabic *(defaults to en)*
 - `data-width="200"` to set the width (in pixels) of the table *(defaults to 150)*
