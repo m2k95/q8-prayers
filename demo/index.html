@@ -5,31 +5,150 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Q8 Prayer Times Demo</title>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers/dist/all.min.css">
-  <script src="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers/dist/all.min.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.js" defer></script>
 
   <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      background: #f5f5f5;
+      font-family: sans-serif;
+    }
+    code{
+      background: #e9e8e8;
+      padding: 3px;
+    }
+    table{
+      margin: 20px 0;
+    }
     .container{
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      border: 1px solid #e9e9e9;
+      width: 80%;
+      margin: 0 auto;
+      background: white;
+    }
+    .container h1{
+      margin: 10px 0;
     }
     .container p{
       text-align: center;
     }
-    table{
-      margin: 20px 0;
+    .container .link{
+      margin: 10px 0;
+      text-align: center;
+    }
+    .container .options{
+      margin: 10px 0;
+    }
+    .container .preview{
+      border: 1px solid #dddddd;
+      width: 50%;
+      margin: 7px 0;
+    }
+    .container .preview p{
+      color: black;
+      margin: 5px 0;
+    }
+    .container .preview span{
+      color: gray;
+    }
+    .container .dark{
+      background: #141414;
+    }
+    .container .dark p{
+      color: rgb(233, 233, 233);
+    }
+    .container .dark span{
+      color: rgb(233, 233, 233);
+    }
+    .container .dark code{
+      color: black;
+      background: #b3b3b3;
+    }
+    .container .preview #q8prayers table{
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 767px) {
+      .container{
+        width: 100%;
+        padding: 10px;
+      }
+      .container .preview{
+        width: 90%;
+      }
     }
     </style>
 </head>
 <body>
   <div class="container">
-    <code>This is a demo page of Q8 Prayer Times</code>
-    <code>Repo <a href="https://github.com/mymk95/q8-prayers">link</a></code>
-    
-    <div id="q8prayers" data-lang="ar"></div>
-    
+    <h1>Kuwait Prayer Times</h1>
+
+    <div class="repo">
+      <a href="https://github.com/mymk95/q8-prayers/releases/latest" target="_blank">Latest release</a>
+    </div>
+
+    <div class="link">
+      <p>Copy-paste the stylesheet &lt;link&gt; into your &lt;head&gt; to load our CSS</p>
+      <code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers/dist/all.min.css"&gt;</code>
+    </div>
+      
+    <div class="link">
+      <p>Include our JavaScript before the closing body</p>
+      <code>&lt;script src="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers/dist/all.min.js"&gt;&lt;/script&gt;</code>
+    </div>
+
+    <div class="link">
+      <p>Create a div element with an id of q8prayers in your project</p>
+      <code>&lt;div id="q8prayers"&gt;&lt;/div&gt;</code>
+    </div>
+
+    <div class="options">
+      <p>Available options:</p>
+      <ul>
+        <li><code>data-lang="ar"</code> to display prayer times in Arabic - defaults to "en"</li>
+        <li><code>data-width="200"</code> to set the width (in pixels) of the table - defaults to "150"</li>
+        <li><code>data-theme="dark"</code> to display prayer times in darkmode</li>
+      </ul>
+    </div>
+
+    <div class="preview">
+      <p>Element used: <code>&lt;div id="q8prayers"&gt;&lt;/div&gt;</code></p>
+      <span>preview</span>
+      <div id="q8prayers"></div>
+    </div>
+
+    <div class="preview">
+      <p>Element used: <code>&lt;div id="q8prayers" data-lang="ar"&gt;&lt;/div&gt;</code></p>
+      <span>preview</span>
+      <div id="q8prayers" data-lang="ar"></div>
+    </div>
+
+    <div class="preview">
+      <p>Element used: <code>&lt;div id="q8prayers" data-width="300"&gt;&lt;/div&gt;</code></p>
+      <span>preview</span>
+      <div id="q8prayers" data-width="300"></div>
+    </div>
+
+    <div class="preview dark">
+      <p>Element used: <code>&lt;div id="q8prayers" data-theme="dark"&gt;&lt;/div&gt;</code></p>
+      <span>preview</span>
+      <div id="q8prayers" data-theme="dark"></div>
+    </div>
+
+    <div class="preview">
+      <p>Element used: <code>&lt;div id="q8prayers" data-lang="ar" data-width="300"&gt;&lt;/div&gt;</code></p>
+      <span>preview</span>
+      <div id="q8prayers" data-lang="ar" data-width="300"></div>
+    </div>
   </div>
 </body>
 </html>
