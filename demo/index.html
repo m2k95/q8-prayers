@@ -12,14 +12,11 @@
     *{
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
     body{
       background: #f5f5f5;
       font-family: sans-serif;
-    }
-    code{
-      background: #e9e8e8;
-      padding: 3px;
     }
     table{
       margin: 20px 0;
@@ -37,14 +34,49 @@
     .container h1{
       margin: 10px 0;
     }
+    .container h3{
+      margin-top: 15px;
+    }
     .container p{
       text-align: center;
     }
-    .container .link{
-      margin: 10px 0;
+    .container .repo a{
+      text-decoration: underline;
+      color: black;
+    }
+    .container .credits{
+      margin-top: 20px;
+    }
+    .container .credits a{
+      text-decoration: underline;
+      color: black;
+    }
+    .container .credits p{
+      text-align: center;
+      line-height: 25px;
+    }
+    .container .instructions{
+      padding: 10px;
+    }
+    .container .instructions .link{
+      margin: 20px 0;
       text-align: center;
     }
-    .container .options{
+    .container .instructions .link p{
+      text-align: left;
+    }
+    .container .instructions .link .code{
+      background: #e9e8e8;
+      border: 1px solid #c7c7c7;
+      padding: 3px;
+      text-align: left;
+      margin-top: 4px;
+    }
+    .container .instructions .link .default{
+      font-style: italic;
+      color: rgb(66, 66, 66);
+    }
+    .container .instructions .options{
       margin: 10px 0;
     }
     .container .preview{
@@ -52,12 +84,11 @@
       width: 50%;
       margin: 7px 0;
     }
-    .container .preview p{
-      color: black;
-      margin: 5px 0;
-    }
-    .container .preview span{
-      color: gray;
+    .container .preview .code{
+      background: #e9e8e8;
+      border: 1px solid #c7c7c7;
+      padding: 3px;
+      text-align: left;
     }
     .container .dark{
       background: #141414;
@@ -67,10 +98,6 @@
     }
     .container .dark span{
       color: rgb(233, 233, 233);
-    }
-    .container .dark code{
-      color: black;
-      background: #b3b3b3;
     }
     .container .preview #q8prayers table{
       margin-left: auto;
@@ -93,67 +120,107 @@
     <h1>Kuwait Prayer Times</h1>
 
     <div class="repo">
-      <a href="https://github.com/mymk95/q8-prayers/releases/latest" target="_blank" id="release">Latest release</a>
+      <a href="https://github.com/mymk95/q8-prayers" target="_blank">Repo</a> | <a href="https://github.com/mymk95/q8-prayers/releases/latest" target="_blank" id="release">Latest release</a>
     </div>
 
-    <div class="link">
-      <p>Copy-paste the stylesheet &lt;link&gt; into your &lt;head&gt; to load our CSS</p>
-      <code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.css"&gt;</code>
-    </div>
-      
-    <div class="link">
-      <p>Include our JavaScript before the closing body</p>
-      <code>&lt;script src="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.js"&gt;&lt;/script&gt;</code>
+    <div class="credits">
+      <p>Kuwait Prayer Times based on <a href="https://aladhan.com">AlAdhan API Services</a></p>
+      <p><a href="https://www.amirifont.org">Amiri font</a> used for Arabic text</p>
     </div>
 
-    <div class="link">
-      <p>Create a div element with an id of q8prayers in your project</p>
-      <code>&lt;div id="q8prayers"&gt;&lt;/div&gt;</code>
+    <h3>Instructions</h3>
+
+    <div class="instructions">
+      <div class="link">
+        <p>Copy-paste the stylesheet &lt;link&gt; into your &lt;head&gt; to load our CSS</p>
+        <div class="code">
+          <code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.css"&gt;</code>
+        </div>
+      </div>
+        
+      <div class="link">
+        <p>Include our JavaScript before the closing body</p>
+        <div class="code">
+          <code>&lt;script src="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.js"&gt;&lt;/script&gt;</code>
+        </div>
+      </div>
+  
+      <div class="link">
+        <p>Create a div element with an id of q8prayers in your project</p>
+        <div class="code">
+          <code>&lt;div id="q8prayers"&gt;&lt;/div&gt;</code>
+        </div>
+      </div>
+  
+      <h3 style="text-align: center;">Options</h3>
+      <div class="options">
+        <div class="link">
+          <p>Display prayer times in Arabic <span class="default">(defaults to "en")</span></p>
+          <div class="code">
+            <code>data-lang="ar"</code>
+          </div>
+        </div>
+
+        <div class="link">
+          <p>Set the width (in pixels) of the table <span class="default">(defaults to "150")</span></p>
+          <div class="code">
+            <code>data-width="200"</code>
+          </div>
+        </div>
+
+        <div class="link">
+          <p>Display prayer times in darkmode</p>
+          <div class="code">
+            <code>data-theme="dark"</code>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="options">
-      <p>Available options:</p>
-      <ul>
-        <li><code>data-lang="ar"</code> to display prayer times in Arabic - defaults to "en"</li>
-        <li><code>data-width="200"</code> to set the width (in pixels) of the table - defaults to "150"</li>
-        <li><code>data-theme="dark"</code> to display prayer times in darkmode</li>
-      </ul>
-    </div>
+    <h3>Preview</h3>
 
     <div class="preview">
-      <p>Element used: <code>&lt;div id="q8prayers"&gt;&lt;/div&gt;</code></p>
-      <span>preview</span>
+      <div class="code">
+        <code>&lt;div id="q8prayers"&gt;&lt;/div&gt;</code>
+      </div>
       <div id="q8prayers"></div>
     </div>
 
     <div class="preview">
-      <p>Element used: <code>&lt;div id="q8prayers" data-lang="ar"&gt;&lt;/div&gt;</code></p>
-      <span>preview</span>
+      <div class="code">
+        <code>&lt;div id="q8prayers" data-lang="ar"&gt;&lt;/div&gt;</code>
+      </div>
       <div id="q8prayers" data-lang="ar"></div>
     </div>
 
     <div class="preview">
-      <p>Element used: <code>&lt;div id="q8prayers" data-width="300"&gt;&lt;/div&gt;</code></p>
-      <span>preview</span>
+      <div class="code">
+        <code>&lt;div id="q8prayers" data-width="300"&gt;&lt;/div&gt;</code>
+      </div>
       <div id="q8prayers" data-width="300"></div>
     </div>
 
     <div class="preview dark">
-      <p>Element used: <code>&lt;div id="q8prayers" data-theme="dark"&gt;&lt;/div&gt;</code></p>
-      <span>preview</span>
+      <div class="code">
+        <code>&lt;div id="q8prayers" data-theme="dark"&gt;&lt;/div&gt;</code>
+      </div>
       <div id="q8prayers" data-theme="dark"></div>
     </div>
 
     <div class="preview">
-      <p>Element used: <code>&lt;div id="q8prayers" data-lang="ar" data-width="300"&gt;&lt;/div&gt;</code></p>
-      <span>preview</span>
+      <div class="code">
+        <code>&lt;div id="q8prayers" data-lang="ar" data-width="300"&gt;&lt;/div&gt;</code>
+      </div>
       <div id="q8prayers" data-lang="ar" data-width="300"></div>
     </div>
   </div>
 
   <script>
     fetch('https://api.github.com/repos/mymk95/q8-prayers/releases/latest')
-    .then(res => res.json())
+    .then(res => {
+      if (res.status !== 200) throw res.statusText
+      return res.json()
+    })
     .then(data => {
       document.querySelector('#release').innerHTML = data.tag_name
     })
