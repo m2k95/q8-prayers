@@ -157,6 +157,9 @@
     .then(data => {
       document.querySelector('#release').innerHTML = data.tag_name
     })
+    .catch(err =>{
+      console.error(err)
+    })
   </script>
 </body>
 </html>
