@@ -93,7 +93,7 @@
     <h1>Kuwait Prayer Times</h1>
 
     <div class="repo">
-      <a href="https://github.com/mymk95/q8-prayers/releases/latest" target="_blank">Latest release</a>
+      <a href="https://github.com/mymk95/q8-prayers/releases/latest" target="_blank" id="release">Latest release</a>
     </div>
 
     <div class="link">
@@ -150,5 +150,13 @@
       <div id="q8prayers" data-lang="ar" data-width="300"></div>
     </div>
   </div>
+
+  <script>
+    fetch('https://api.github.com/repos/mymk95/q8-prayers/releases/latest')
+    .then(res => res.json())
+    .then(data => {
+      document.querySelector('#release').innerHTML = data.tag_name
+    })
+  </script>
 </body>
 </html>
