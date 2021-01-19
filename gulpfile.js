@@ -27,6 +27,13 @@ var scripts = [
   './js/app.js',
 ]
 
+var scripts_dev = [
+  './js/toArabicNumbers.js',
+  './js/reformatData.js',
+  './js/fetchPrayers.js',
+  './js/app.js',
+]
+
 gulp.task('sass', async function(){
   gulp.src('./scss/*.scss')
     .pipe(sass().on('error', sass.logError))
@@ -59,7 +66,7 @@ gulp.task('scripts', async function(){
 });
 
 gulp.task('scripts-dev', async function(){
-  gulp.src(scripts)
+  gulp.src(scripts_dev)
   .pipe(concat('dev.js'))
   .pipe(ignore.exclude(['**/*.map']))
   .on('error', function(err){ gutil.log(gutil.colors.red('[Error]'), err.toString()); })
@@ -70,7 +77,7 @@ gulp.task('run-dev', gulp.series('sass-dev', 'scripts-dev'));
 
 gulp.task('watch', function(){
   gulp.watch('./scss/*.scss', gulp.series('sass-dev'));
-  gulp.watch(scripts, gulp.series('scripts-dev'));
+  gulp.watch(scripts_dev, gulp.series('scripts-dev'));
 })
 
 gulp.task('build', gulp.series('sass', 'scripts'));
