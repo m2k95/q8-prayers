@@ -4,17 +4,15 @@ Kuwait Prayer Times based on https://aladhan.com API services
 Amiri font used for Arabic text from https://www.amirifont.org
 
 ## Getting Started
-Copy-paste the stylesheet `<link>` into your `<head>` to load our CSS
-
-`<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.css">`
-
 Include our JavaScript before the closing body
 
 `<script src="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.js"></script>`
 
 > You can specify a version instead of using latest release, please refer to [releases](https://github.com/mymk95/q8-prayers/releases) to select a version
 >
-> example: https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@1.0.1/dist/all.min.js
+> Example: https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@1.0.1/dist/all.min.js
+> 
+> CSS injection works with version 1.0.7+ if using older, please include our stylesheet `<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.css">`
 
 Create a div element with an id of q8prayers in your project
 
