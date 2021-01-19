@@ -12,7 +12,7 @@ Include our JavaScript before the closing body
 >
 > Example: https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@1.0.1/dist/all.min.js
 > 
-> CSS injection works with version 1.0.7+ if using older, please include our stylesheet `<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.css">`
+> Version 1.0.7+ will inject CSS to your page, if using older please include our stylesheet `<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.css">`
 
 Create a div element with an id of q8prayers in your project
 
@@ -33,9 +33,6 @@ Create a div element with an id of q8prayers in your project
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Q8 Prayer Times CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.css">
 
     <title>Q8 Prayer Times Starter Template</title>
   </head>
