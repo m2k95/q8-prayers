@@ -224,13 +224,13 @@
   </div>
 
   <script>
-    fetch('https://api.github.com/repos/mymk95/q8-prayers/releases/latest')
+    fetch('https://data.jsdelivr.com/v1/package/gh/mymk95/q8-prayers')
     .then(res => {
       if (res.status !== 200) throw res.statusText
       return res.json()
     })
     .then(data => {
-      document.querySelector('#release').innerHTML = data.tag_name
+      document.querySelector('#release').innerHTML = data.versions[0]
     })
     .catch(err =>{
       console.error(err)
