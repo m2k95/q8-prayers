@@ -142,14 +142,14 @@
       <div class="link">
         <p>Copy-paste the stylesheet &lt;link&gt; into your &lt;head&gt; to load our CSS</p>
         <div class="code">
-          <code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.css"&gt;</code>
+          <code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@<span id="release">latest</span>/dist/all.min.css"&gt;</code>
         </div>
       </div>
         
       <div class="link">
         <p>Include our JavaScript before the closing body</p>
         <div class="code">
-          <code>&lt;script src="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.js"&gt;&lt;/script&gt;</code>
+          <code>&lt;script src="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@<span id="release">latest</span>/dist/all.min.js"&gt;&lt;/script&gt;</code>
         </div>
       </div>
   
@@ -230,7 +230,9 @@
       return res.json()
     })
     .then(data => {
-      document.querySelector('#release').innerHTML = data.versions[0]
+      document.querySelectorAll('#release').forEach(release => {
+        release.innerHTML = data.versions[0]
+      })
     })
     .catch(err =>{
       console.error(err)
