@@ -8,6 +8,7 @@ var gutil = require('gulp-util');
 var minifyJS = require('gulp-minify');
 var header = require("gulp-header");
 var pkg = require("./package.json");
+var fs = require('fs')
 
 var banner = ["/**",
     " * <%= pkg.name %> v<%= pkg.version %>",
@@ -18,9 +19,18 @@ var banner = ["/**",
 	" * Written by <%= pkg.author.name %> <<%= pkg.author.email %>>",
 	" * License <%= pkg.license %>",
 	" */",
-	""].join("\n");
+  ""].join("\n");
+  
+var importCSS = `var head  = document.getElementsByTagName('head')[0]
+var link  = document.createElement('link')
+link.rel  = 'stylesheet'
+link.type = 'text/css'
+link.href = 'https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@${pkg.version}/dist/all.min.css'
+head.appendChild(link)
+`;
 
 var scripts = [
+  './js/import-css.js',
   './js/toArabicNumbers.js',
   './js/reformatData.js',
   './js/fetchPrayers.js',
@@ -52,6 +62,7 @@ gulp.task('sass-dev', async function(){
 });
 
 gulp.task('scripts', async function(){
+  fs.writeFileSync('js/import-css.js', importCSS);
   gulp.src(scripts)
   .pipe(concat('all.js'))
   .pipe(ignore.exclude(['**/*.map']))
