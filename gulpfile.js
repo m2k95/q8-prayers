@@ -56,9 +56,9 @@ gulp.task('scripts', async function(){
   .pipe(ignore.exclude(['**/*.map']))
   .pipe(minifyJS({
     ext:{
-      src:'.js',
       min:'.min.js'
-    }
+    },
+    noSource: true
   }))
   .on('error', function(err){ gutil.log(gutil.colors.red('[Error]'), err.toString()); })
   .pipe(header(banner, {pkg: pkg}))
