@@ -28,6 +28,7 @@ var scripts = [
 ]
 
 var scripts_dev = [
+  './js/import-css-dev.js',
   './js/toArabicNumbers.js',
   './js/reformatData.js',
   './js/fetchPrayers.js',
