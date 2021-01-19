@@ -12,6 +12,10 @@ Include our JavaScript before the closing body
 
 `<script src="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.js"></script>`
 
+> You can specify a version instead of using latest release, please refer to [releases](https://github.com/mymk95/q8-prayers/releases) to select a version
+>
+> example: https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@1.0.1/dist/all.min.js
+
 Create a div element with an id of q8prayers in your project
 
 `<div id="q8prayers"></div>`
