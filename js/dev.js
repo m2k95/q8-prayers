@@ -168,7 +168,7 @@ prayerElements.forEach(prayerElement => {
       title_tr.appendChild(title_th)
     
       credits_th.setAttribute('colspan', '2')
-      credits_a.setAttribute('href', 'https://q8prayers.vercel.app')
+      credits_a.setAttribute('href', 'https://q8prayers.com')
       credits_a.setAttribute('target', '_blank')
       credits_a.innerHTML = 'Q8 Prayer Times'
       credits_small.appendChild(credits_a)
