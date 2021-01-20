@@ -1,6 +1,6 @@
 /**
  * q8-prayertimes v1.0.8
- * @link https://q8prayers.vercel.app
+ * @link https://q8prayers.com
  * @repo https://github.com/mymk95/q8-prayers
  *
  * Kuwait Prayer Times
