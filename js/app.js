@@ -5,16 +5,18 @@ const yyyy = today.getFullYear()
 today = dd + '-' + mm + '-' + yyyy
 
 const prayerElements = document.querySelectorAll('#q8prayers')
-prayerElements.forEach(prayerElement => {
-  var lang, width, dark
+
+fetchPrayers(today).then(prayers => {
+
+  prayerElements.forEach(prayerElement => {
+    var lang, width, dark
   
-  prayerElement.getAttribute('data-lang') === 'ar' ? lang = 'ar' : lang = 'en'
-  prayerElement.getAttribute('data-width') === null ? width = 150 : width = parseInt(prayerElement.getAttribute('data-width'))
-  prayerElement.getAttribute('data-theme') === 'dark' ? dark = true : dark = false
-  
-  fetchPrayers(today, lang).then(prayers => {
+    prayerElement.getAttribute('data-lang') === 'ar' ? lang = 'ar' : lang = 'en'
+    prayerElement.getAttribute('data-width') === null ? width = 150 : width = parseInt(prayerElement.getAttribute('data-width'))
+    prayerElement.getAttribute('data-theme') === 'dark' ? dark = true : dark = false
+
     if (prayers.error) {
-      prayerElement.innerHTML = `<p class="q8prayers-error">${prayers.message}</p>`
+      prayerElement.innerHTML = `<p class="q8prayers-error">${lang === 'ar' ? prayers.message.ar : prayers.message.en}</p>`
       
     }else{
       if(dark){
@@ -57,7 +59,7 @@ prayerElements.forEach(prayerElement => {
       let isha_td = document.createElement('td')
     
       title_th.setAttribute('colspan', '2')
-      title_small.innerHTML = prayers.Title
+      title_small.innerHTML = lang === 'ar' ? prayers.Title.ar : prayers.Title.en
       title_th.appendChild(title_small)
       title_tr.appendChild(title_th)
     
@@ -70,31 +72,31 @@ prayerElements.forEach(prayerElement => {
       credits_tr.appendChild(credits_th)
   
       date_th.setAttribute('colspan', '2')
-      date_th.innerHTML = prayers.Date
+      date_th.innerHTML = lang === 'ar' ? prayers.Date.ar : prayers.Date.en
       date_tr.appendChild(date_th)
      
-      fajr_th.innerHTML = prayers.Fajr.name
-      fajr_td.innerHTML = prayers.Fajr.time
+      fajr_th.innerHTML = lang === 'ar' ? prayers.Fajr.ar.name : prayers.Fajr.en.name
+      fajr_td.innerHTML = lang === 'ar' ? prayers.Fajr.ar.time : prayers.Fajr.en.time
       fajr_tr.appendChild(fajr_th)
       fajr_tr.appendChild(fajr_td)
      
-      dhuher_th.innerHTML = prayers.Dhuhr.name
-      dhuher_td.innerHTML = prayers.Dhuhr.time
+      dhuher_th.innerHTML = lang === 'ar' ? prayers.Dhuhr.ar.name : prayers.Dhuhr.en.name
+      dhuher_td.innerHTML = lang === 'ar' ? prayers.Dhuhr.ar.time : prayers.Dhuhr.en.time
       dhuher_tr.appendChild(dhuher_th)
       dhuher_tr.appendChild(dhuher_td)
      
-      asr_th.innerHTML = prayers.Asr.name
-      asr_td.innerHTML = prayers.Asr.time
+      asr_th.innerHTML = lang === 'ar' ? prayers.Asr.ar.name : prayers.Asr.en.name
+      asr_td.innerHTML = lang === 'ar' ? prayers.Asr.ar.time : prayers.Asr.en.time
       asr_tr.appendChild(asr_th)
       asr_tr.appendChild(asr_td)
      
-      maghrib_th.innerHTML = prayers.Maghrib.name
-      maghrib_td.innerHTML = prayers.Maghrib.time
+      maghrib_th.innerHTML = lang === 'ar' ? prayers.Maghrib.ar.name : prayers.Maghrib.en.name
+      maghrib_td.innerHTML = lang === 'ar' ? prayers.Maghrib.ar.time : prayers.Maghrib.en.time
       maghrib_tr.appendChild(maghrib_th)
       maghrib_tr.appendChild(maghrib_td)
      
-      isha_th.innerHTML = prayers.Isha.name
-      isha_td.innerHTML = prayers.Isha.time
+      isha_th.innerHTML = lang === 'ar' ? prayers.Isha.ar.name : prayers.Isha.en.name
+      isha_td.innerHTML = lang === 'ar' ? prayers.Isha.ar.time : prayers.Isha.en.time
       isha_tr.appendChild(isha_th)
       isha_tr.appendChild(isha_td)
     
