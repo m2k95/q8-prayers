@@ -24,7 +24,7 @@ function reformatDate(lang, date) {
   return parseInt(h) > 12 ? `${parseInt(h) - 12}:${m} ${pm}` : `${parseInt(h)}:${m} ${am}`
 }
 
-async function fetchPrayers(today, lang){
+async function fetchPrayers(today){
   try {
     const res = await (await fetch(`https://api.aladhan.com/timingsByAddress/${today}?address=kuwait,al-asimah&method=9`)).json()
     if (res.code === 200) {
@@ -33,73 +33,84 @@ async function fetchPrayers(today, lang){
       const Asr = res.data.timings.Asr
       const Maghrib = res.data.timings.Maghrib
       const Isha = res.data.timings.Isha
-      var prayers = {}
   
-      if(lang === 'ar'){
-        prayers = {
-          Fajr: {
-            name: 'الفجر',
-            time: `${reformatDate(lang, Fajr).toArabicNumbers()}`
-          },
-          Dhuhr: {
-            name: 'الظُهر',
-            time: `${reformatDate(lang, Dhuhr).toArabicNumbers()}`
-          },
-          Asr: {
-            name: 'العصر',
-            time: `${reformatDate(lang, Asr).toArabicNumbers()}`
-          },
-          Maghrib: {
-            name: 'المغرب',
-            time: `${reformatDate(lang, Maghrib).toArabicNumbers()}`
-          },
-          Isha: {
-            name: 'العِشاء',
-            time: `${reformatDate(lang, Isha).toArabicNumbers()}`
-          },
-          Date: today.toArabicNumbers(),
-          Title: 'أوقات الصلاة في الكويت'
-        }
-      }
-      else{
-        prayers = {
-          Fajr: {
+      const prayers = {
+        Fajr: {
+          en: {
             name: 'Fajr',
-            time: `${reformatDate(lang, Fajr)}`
+            time: `${reformatDate('en', Fajr)}`
           },
-          Dhuhr: {
+          ar: {
+            name: 'الفجر',
+            time: `${reformatDate('ar', Fajr).toArabicNumbers()}`
+          }
+        },
+        Dhuhr: {
+          en: {
             name: 'Dhuhr',
-            time: `${reformatDate(lang, Dhuhr)}`
+            time: `${reformatDate('en', Dhuhr)}`
           },
-          Asr: {
+          ar: {
+            name: 'الظُهر',
+            time: `${reformatDate('ar', Dhuhr).toArabicNumbers()}`
+          }
+        },
+        Asr: {
+          en: {
             name: 'Asr',
-            time: `${reformatDate(lang, Asr)}`
+            time: `${reformatDate('en', Asr)}`
           },
-          Maghrib: {
+          ar: {
+            name: 'العصر',
+            time: `${reformatDate('ar', Asr).toArabicNumbers()}`
+          }
+        },
+        Maghrib: {
+          en: {
             name: 'Maghrib',
-            time: `${reformatDate(lang, Maghrib)}`
+            time: `${reformatDate('en', Maghrib)}`
           },
-          Isha: {
+          ar: {
+            name: 'المغرب',
+            time: `${reformatDate('ar', Maghrib).toArabicNumbers()}`
+          }
+        },
+        Isha: {
+          en: {
             name: 'Isha',
-            time: `${reformatDate(lang, Isha)}`
+            time: `${reformatDate('en', Isha)}`
           },
-          Date: today,
-          Title: 'Kuwait Prayer Times'
+          ar: {
+            name: 'العِشاء',
+            time: `${reformatDate('ar', Isha).toArabicNumbers()}`
+          }
+        },
+        Date: {
+          en: today,
+          ar: today.toArabicNumbers()
+        },
+        Title: {
+          en: 'Kuwait Prayer Times',
+          ar: 'أوقات الصلاة في الكويت'
         }
       }
       
       return prayers
 
     }else{
-      var message = 'Please try again later'
-      if(lang === 'ar') message = 'الرجاء المحاولة لاحقًا'
+      const message = {
+        en: 'Please try again later',
+        ar: 'الرجاء المحاولة لاحقًا'
+      }
       return { error: true, message }
     }
 
   } catch (error) {
     console.error(error)
-    var message = 'Please try again later'
-    if(lang === 'ar') message = 'الرجاء المحاولة لاحقًا'
+    const message = {
+      en: 'Please try again later',
+      ar: 'الرجاء المحاولة لاحقًا'
+    }
     return { error: true, message }
   }
 }
@@ -111,16 +122,18 @@ const yyyy = today.getFullYear()
 today = dd + '-' + mm + '-' + yyyy
 
 const prayerElements = document.querySelectorAll('#q8prayers')
-prayerElements.forEach(prayerElement => {
-  var lang, width, dark
+
+fetchPrayers(today).then(prayers => {
+
+  prayerElements.forEach(prayerElement => {
+    var lang, width, dark
   
-  prayerElement.getAttribute('data-lang') === 'ar' ? lang = 'ar' : lang = 'en'
-  prayerElement.getAttribute('data-width') === null ? width = 150 : width = parseInt(prayerElement.getAttribute('data-width'))
-  prayerElement.getAttribute('data-theme') === 'dark' ? dark = true : dark = false
-  
-  fetchPrayers(today, lang).then(prayers => {
+    prayerElement.getAttribute('data-lang') === 'ar' ? lang = 'ar' : lang = 'en'
+    prayerElement.getAttribute('data-width') === null ? width = 150 : width = parseInt(prayerElement.getAttribute('data-width'))
+    prayerElement.getAttribute('data-theme') === 'dark' ? dark = true : dark = false
+
     if (prayers.error) {
-      prayerElement.innerHTML = `<p class="q8prayers-error">${prayers.message}</p>`
+      prayerElement.innerHTML = `<p class="q8prayers-error">${lang === 'ar' ? prayers.message.ar : prayers.message.en}</p>`
       
     }else{
       if(dark){
@@ -163,7 +176,7 @@ prayerElements.forEach(prayerElement => {
       let isha_td = document.createElement('td')
     
       title_th.setAttribute('colspan', '2')
-      title_small.innerHTML = prayers.Title
+      title_small.innerHTML = lang === 'ar' ? prayers.Title.ar : prayers.Title.en
       title_th.appendChild(title_small)
       title_tr.appendChild(title_th)
     
@@ -176,31 +189,31 @@ prayerElements.forEach(prayerElement => {
       credits_tr.appendChild(credits_th)
   
       date_th.setAttribute('colspan', '2')
-      date_th.innerHTML = prayers.Date
+      date_th.innerHTML = lang === 'ar' ? prayers.Date.ar : prayers.Date.en
       date_tr.appendChild(date_th)
      
-      fajr_th.innerHTML = prayers.Fajr.name
-      fajr_td.innerHTML = prayers.Fajr.time
+      fajr_th.innerHTML = lang === 'ar' ? prayers.Fajr.ar.name : prayers.Fajr.en.name
+      fajr_td.innerHTML = lang === 'ar' ? prayers.Fajr.ar.time : prayers.Fajr.en.time
       fajr_tr.appendChild(fajr_th)
       fajr_tr.appendChild(fajr_td)
      
-      dhuher_th.innerHTML = prayers.Dhuhr.name
-      dhuher_td.innerHTML = prayers.Dhuhr.time
+      dhuher_th.innerHTML = lang === 'ar' ? prayers.Dhuhr.ar.name : prayers.Dhuhr.en.name
+      dhuher_td.innerHTML = lang === 'ar' ? prayers.Dhuhr.ar.time : prayers.Dhuhr.en.time
       dhuher_tr.appendChild(dhuher_th)
       dhuher_tr.appendChild(dhuher_td)
      
-      asr_th.innerHTML = prayers.Asr.name
-      asr_td.innerHTML = prayers.Asr.time
+      asr_th.innerHTML = lang === 'ar' ? prayers.Asr.ar.name : prayers.Asr.en.name
+      asr_td.innerHTML = lang === 'ar' ? prayers.Asr.ar.time : prayers.Asr.en.time
       asr_tr.appendChild(asr_th)
       asr_tr.appendChild(asr_td)
      
-      maghrib_th.innerHTML = prayers.Maghrib.name
-      maghrib_td.innerHTML = prayers.Maghrib.time
+      maghrib_th.innerHTML = lang === 'ar' ? prayers.Maghrib.ar.name : prayers.Maghrib.en.name
+      maghrib_td.innerHTML = lang === 'ar' ? prayers.Maghrib.ar.time : prayers.Maghrib.en.time
       maghrib_tr.appendChild(maghrib_th)
       maghrib_tr.appendChild(maghrib_td)
      
-      isha_th.innerHTML = prayers.Isha.name
-      isha_td.innerHTML = prayers.Isha.time
+      isha_th.innerHTML = lang === 'ar' ? prayers.Isha.ar.name : prayers.Isha.en.name
+      isha_td.innerHTML = lang === 'ar' ? prayers.Isha.ar.time : prayers.Isha.en.time
       isha_tr.appendChild(isha_th)
       isha_tr.appendChild(isha_td)
     
