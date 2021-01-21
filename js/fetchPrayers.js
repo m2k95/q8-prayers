@@ -1,4 +1,4 @@
-async function fetchPrayers(today, lang){
+async function fetchPrayers(today){
   try {
     const res = await (await fetch(`https://api.aladhan.com/timingsByAddress/${today}?address=kuwait,al-asimah&method=9`)).json()
     if (res.code === 200) {
@@ -7,73 +7,84 @@ async function fetchPrayers(today, lang){
       const Asr = res.data.timings.Asr
       const Maghrib = res.data.timings.Maghrib
       const Isha = res.data.timings.Isha
-      var prayers = {}
   
-      if(lang === 'ar'){
-        prayers = {
-          Fajr: {
-            name: 'الفجر',
-            time: `${reformatDate(lang, Fajr).toArabicNumbers()}`
-          },
-          Dhuhr: {
-            name: 'الظُهر',
-            time: `${reformatDate(lang, Dhuhr).toArabicNumbers()}`
-          },
-          Asr: {
-            name: 'العصر',
-            time: `${reformatDate(lang, Asr).toArabicNumbers()}`
-          },
-          Maghrib: {
-            name: 'المغرب',
-            time: `${reformatDate(lang, Maghrib).toArabicNumbers()}`
-          },
-          Isha: {
-            name: 'العِشاء',
-            time: `${reformatDate(lang, Isha).toArabicNumbers()}`
-          },
-          Date: today.toArabicNumbers(),
-          Title: 'أوقات الصلاة في الكويت'
-        }
-      }
-      else{
-        prayers = {
-          Fajr: {
+      const prayers = {
+        Fajr: {
+          en: {
             name: 'Fajr',
-            time: `${reformatDate(lang, Fajr)}`
+            time: `${reformatDate('en', Fajr)}`
           },
-          Dhuhr: {
+          ar: {
+            name: 'الفجر',
+            time: `${reformatDate('ar', Fajr).toArabicNumbers()}`
+          }
+        },
+        Dhuhr: {
+          en: {
             name: 'Dhuhr',
-            time: `${reformatDate(lang, Dhuhr)}`
+            time: `${reformatDate('en', Dhuhr)}`
           },
-          Asr: {
+          ar: {
+            name: 'الظُهر',
+            time: `${reformatDate('ar', Dhuhr).toArabicNumbers()}`
+          }
+        },
+        Asr: {
+          en: {
             name: 'Asr',
-            time: `${reformatDate(lang, Asr)}`
+            time: `${reformatDate('en', Asr)}`
           },
-          Maghrib: {
+          ar: {
+            name: 'العصر',
+            time: `${reformatDate('ar', Asr).toArabicNumbers()}`
+          }
+        },
+        Maghrib: {
+          en: {
             name: 'Maghrib',
-            time: `${reformatDate(lang, Maghrib)}`
+            time: `${reformatDate('en', Maghrib)}`
           },
-          Isha: {
+          ar: {
+            name: 'المغرب',
+            time: `${reformatDate('ar', Maghrib).toArabicNumbers()}`
+          }
+        },
+        Isha: {
+          en: {
             name: 'Isha',
-            time: `${reformatDate(lang, Isha)}`
+            time: `${reformatDate('en', Isha)}`
           },
-          Date: today,
-          Title: 'Kuwait Prayer Times'
+          ar: {
+            name: 'العِشاء',
+            time: `${reformatDate('ar', Isha).toArabicNumbers()}`
+          }
+        },
+        Date: {
+          en: today,
+          ar: today.toArabicNumbers()
+        },
+        Title: {
+          en: 'Kuwait Prayer Times',
+          ar: 'أوقات الصلاة في الكويت'
         }
       }
       
       return prayers
 
     }else{
-      var message = 'Please try again later'
-      if(lang === 'ar') message = 'الرجاء المحاولة لاحقًا'
+      const message = {
+        en: 'Please try again later',
+        ar: 'الرجاء المحاولة لاحقًا'
+      }
       return { error: true, message }
     }
 
   } catch (error) {
     console.error(error)
-    var message = 'Please try again later'
-    if(lang === 'ar') message = 'الرجاء المحاولة لاحقًا'
+    const message = {
+      en: 'Please try again later',
+      ar: 'الرجاء المحاولة لاحقًا'
+    }
     return { error: true, message }
   }
 }
