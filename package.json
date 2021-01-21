@@ -1,6 +1,6 @@
 {
   "name": "q8-prayertimes",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Kuwait Prayer Times",
   "main": "index.js",
   "scripts": {
