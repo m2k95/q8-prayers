@@ -8,17 +8,17 @@ Include our JavaScript before the closing body
 
 `<script src="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.js"></script>`
 
-> You can specify a version instead of using latest release, please refer to [releases](https://github.com/mymk95/q8-prayers/releases) to select a version
->
-> Example: https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@1.0.1/dist/all.min.js
-> 
-> Version 1.0.7+ will inject CSS to your page, if using older please include our stylesheet `<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.css">`
-
 Create a div element with an id of q8prayers in your project
 
 `<div id="q8prayers"></div>`
 
 > You can add more than one element in a single page
+>
+> You can specify a version instead of using latest release, please refer to [releases](https://github.com/mymk95/q8-prayers/releases) to select a version
+>
+> Example: `<script src="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@v1.0.1/dist/all.min.js"></script>`
+> 
+> Version 1.0.7+ will load CSS to your page, if using older please include our stylesheet `<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mymk95/q8-prayers@latest/dist/all.min.css">`
 
 ## Options
 - `data-lang="ar"` to display prayer times in Arabic *(defaults to en)*
