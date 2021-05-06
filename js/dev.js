@@ -27,7 +27,7 @@ function reformatDate(lang, date) {
 
 async function fetchPrayers(today){
   try {
-    const res = await (await fetch(`https://api.aladhan.com/timingsByAddress/${today}?address=kuwait,al-asimah&method=9`)).json()
+    const res = await (await fetch(`https://api.aladhan.com/v1/timingsByAddress/${today}?address=kuwait,al-asimah&method=9`)).json()
     if (res.code === 200) {
       const Fajr = res.data.timings.Fajr
       const Dhuhr = res.data.timings.Dhuhr
