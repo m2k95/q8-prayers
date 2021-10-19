@@ -6,7 +6,7 @@
     "tagName": "v${version}"
   },
   "github": {
-    "assets": ["dist/*.zip"],
+    "assets": "dist/*.zip",
     "draft": true,
     "release": true,
     "releaseName": "v${version}"
