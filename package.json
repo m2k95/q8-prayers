@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "gulp",
-    "build": "gulp build"
+    "zip": "cd dist && zip -r Q8-PrayerTimes-$npm_package_version.zip . -x '.DS_Store'",
+    "build": "rm -rf dist/* && cp -R scss/fonts dist/ && gulp build && npm run zip",
+    "release": "release-it"
   },
   "author": {
     "name": "Mohammad AlFailakawi",
@@ -26,6 +28,7 @@
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-uglifycss": "^1.1.0",
-    "gulp-util": "^3.0.8"
+    "gulp-util": "^3.0.8",
+    "release-it": "^14.11.6"
   }
 }

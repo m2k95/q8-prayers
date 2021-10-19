@@ -1,0 +1,21 @@
+{
+  "git": {
+    "commitMessage": "Release v${version}",
+    "requireCleanWorkingDir": true,
+    "tagAnnotation": "Release v${version}",
+    "tagName": "v${version}"
+  },
+  "github": {
+    "assets": ["dist/*.zip"],
+    "draft": true,
+    "release": true,
+    "releaseName": "v${version}"
+  },
+  "npm": {
+    "publish": false
+  },
+  "hooks": {
+    "after:bump": "npm run build",
+    "after:release": "echo Successfully created a release draft v${version} for ${repo.repository}. Please add release notes when necessary and publish it!"
+  }
+}
