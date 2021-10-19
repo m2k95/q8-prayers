@@ -1,10 +1,3 @@
-var head  = document.getElementsByTagName('head')[0]
-var link  = document.createElement('link')
-link.rel  = 'stylesheet'
-link.type = 'text/css'
-link.href = '../scss/dev.css'
-head.appendChild(link)
-
 String.prototype.toArabicNumbers= function(){
   var id= ['٠', '١', '٢', '٣', '٤' ,'٥', '٦', '٧', '٨', '٩']
   return this.replace(/[0-9]/g, function(w){

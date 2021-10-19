@@ -30,7 +30,7 @@ head.appendChild(link)
 `;
 
 var scripts = [
-  './js/import-css.js',
+  // './js/import-css.js',
   './js/toArabicNumbers.js',
   './js/reformatData.js',
   './js/fetchPrayers.js',
@@ -38,7 +38,7 @@ var scripts = [
 ]
 
 var scripts_dev = [
-  './js/import-css-dev.js',
+  // './js/import-css-dev.js',
   './js/toArabicNumbers.js',
   './js/reformatData.js',
   './js/fetchPrayers.js',
@@ -62,7 +62,7 @@ gulp.task('sass-dev', async function(){
 });
 
 gulp.task('scripts', async function(){
-  fs.writeFileSync('js/import-css.js', importCSS);
+  // fs.writeFileSync('js/import-css.js', importCSS);
   gulp.src(scripts)
   .pipe(concat('all.js'))
   .pipe(ignore.exclude(['**/*.map']))

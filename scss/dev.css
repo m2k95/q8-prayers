@@ -2,13 +2,13 @@
   font-family: Amiri;
   font-style: normal;
   font-weight: 100;
-  src: url("./font/Amiri-Regular.ttf"); }
+  src: url("./fonts/Amiri-Regular.ttf"); }
 
 @font-face {
   font-family: Overpass;
   font-style: normal;
   font-weight: 100;
-  src: url("./font/Overpass-ExtraLight.ttf"); }
+  src: url("./fonts/Overpass-ExtraLight.ttf"); }
 
 #q8prayers.dark {
   color: #d9d9d9; }
