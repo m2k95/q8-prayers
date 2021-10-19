@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "gulp",
-    "zip": "cd dist && zip -r Q8-PrayerTimes-$npm_package_version.zip . -x '.DS_Store'",
+    "zip": "cd dist && zip -r Q8-PrayerTimes-v$npm_package_version.zip . -x '.DS_Store'",
     "build": "rm -rf dist/* && cp -R scss/fonts dist/ && gulp build && npm run zip",
     "release": "release-it"
   },
