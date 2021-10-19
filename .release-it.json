@@ -6,6 +6,7 @@
     "tagName": "v${version}"
   },
   "github": {
+    "tokenRef": "GITHUB_TOKEN_RELEASE_IT",
     "assets": "dist/**.zip",
     "draft": true,
     "release": true,
