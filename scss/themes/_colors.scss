@@ -1,4 +1,4 @@
-#q8prayers{
+#q8prayers, #q8prayers[data-theme='light']{
   --prayerTimesColor: rgb(25, 25, 25);
   --tableBorderColor: hsl(0, 0%, 50%);
   --tableHeaderColor: hsl(0, 0%, 50%);
@@ -19,5 +19,13 @@
   --tableBorderColor: rgb(0, 0, 0);
   --tableHeaderColor: rgb(0, 0, 0);
   --tableCreditsColor: rgb(0, 0, 0);
+  --errorMessageColor: rgb(200, 0, 0);
+}
+
+#q8prayers[data-theme='white']{
+  --prayerTimesColor: hsl(0, 0%, 100%);
+  --tableBorderColor: rgb(255, 255, 255);
+  --tableHeaderColor: rgb(255, 255, 255);
+  --tableCreditsColor: rgb(255, 255, 255);
   --errorMessageColor: rgb(200, 0, 0);
 }
