@@ -1,7 +1,7 @@
 # Kuwait Prayer Times
-Kuwait Prayer Times based on https://aladhan.com API services
+Kuwait Prayer Times based on [AlAdhan](https://aladhan.com) API services
 
-Amiri font used for Arabic text from https://www.amirifont.org
+[Amiri font](https://www.amirifont.org) used for Arabic text
 
 ## Getting Started
 Include our JavaScript before the closing body
@@ -21,7 +21,11 @@ Create a div element with an id of q8prayers in your project
 ## Options
 - `data-lang="ar"` to display prayer times in Arabic *(defaults to en)*
 - `data-width="200"` to set the width (in pixels) of the table *(defaults to 150)*
-- `data-theme="dark"` to display prayer times in darkmode
+- Themes:
+  - `data-theme="light"` to display prayer times in default mode
+  - `data-theme="dark"` to display prayer times in dark mode
+  - `data-theme="black"` to display prayer times in all black mode
+  - `data-theme="white"` to display prayer times in all white mode
 
 ## Starter Template
 ```html
