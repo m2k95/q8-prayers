@@ -10,31 +10,34 @@
   font-weight: 100;
   src: url("./fonts/Overpass-ExtraLight.ttf"); }
 
-#q8prayers.dark {
-  color: #d9d9d9; }
-  #q8prayers.dark table tr {
-    border-color: #bebebe; }
-  #q8prayers.dark table th {
-    color: #bebebe; }
-  #q8prayers.dark table tr:nth-last-child(1) th small a {
-    color: #bebebe; }
-  #q8prayers.dark .q8prayers-error {
-    color: #c80000; }
+#q8prayers {
+  --prayerTimesColor: rgb(25, 25, 25);
+  --tableBorderColor: hsl(0, 0%, 50%);
+  --tableHeaderColor: hsl(0, 0%, 50%);
+  --tableCreditsColor: hsl(0, 0%, 50%);
+  --errorMessageColor: rgb(175, 0, 0); }
+
+#q8prayers[data-theme='dark'] {
+  --prayerTimesColor: hsl(0, 0%, 85%);
+  --tableBorderColor: rgb(190, 190, 190);
+  --tableHeaderColor: rgb(190, 190, 190);
+  --tableCreditsColor: rgb(190, 190, 190);
+  --errorMessageColor: rgb(200, 0, 0); }
 
 #q8prayers {
   font-size: 20px;
   font-family: Overpass;
-  color: #191919; }
+  color: var(--prayerTimesColor); }
   #q8prayers table {
     width: 150px; }
     #q8prayers table tr {
-      border: 1px solid gray; }
+      border: 1px solid var(--tableBorderColor); }
     #q8prayers table th, #q8prayers table td {
       padding: 5px;
       font-size: .8rem; }
     #q8prayers table th {
       text-align: start;
-      color: gray; }
+      color: var(--tableHeaderColor); }
     #q8prayers table td {
       text-align: end; }
     #q8prayers table tr:nth-child(1) th, #q8prayers table tr:nth-child(2) th {
@@ -52,10 +55,10 @@
         #q8prayers table tr:nth-last-child(1) th small a {
           font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
           text-decoration: none;
-          color: gray;
+          color: var(--tableCreditsColor);
           font-size: .5rem; }
   #q8prayers table, #q8prayers th, #q8prayers td {
     border-collapse: collapse; }
   #q8prayers .q8prayers-error {
-    color: #af0000;
+    color: var(--errorMessageColor);
     font-size: small; }

@@ -1,17 +1,16 @@
 @import 'font';
-@import './themes/default';
-@import './themes/dark';
+@import 'themes/colors';
 
 #q8prayers{
   font-size: 20px;
   font-family: Overpass;
-  color: $prayerTimesColor;
+  color: var(--prayerTimesColor);
 
   table{
     width: 150px;
     
     tr{
-      border: 1px solid $tableBorderColor;
+      border: 1px solid var(--tableBorderColor);
     }
 
     th, td{
@@ -21,7 +20,7 @@
   
     th{
       text-align: start;
-      color: $tableHeaderColor;
+      color: var(--tableHeaderColor);
     }
 
     td{
@@ -54,7 +53,7 @@
           a{
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             text-decoration: none;
-            color: $tableCreditsColor;
+            color: var(--tableCreditsColor);
             font-size: .5rem;
           }
         }
