@@ -13,3 +13,11 @@
   --tableCreditsColor: rgb(190, 190, 190);
   --errorMessageColor: rgb(200, 0, 0);
 }
+
+#q8prayers[data-theme='black']{
+  --prayerTimesColor: hsl(0, 0%, 0%);
+  --tableBorderColor: rgb(0, 0, 0);
+  --tableHeaderColor: rgb(0, 0, 0);
+  --tableCreditsColor: rgb(0, 0, 0);
+  --errorMessageColor: rgb(200, 0, 0);
+}
