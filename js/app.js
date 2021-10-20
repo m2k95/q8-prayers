@@ -9,19 +9,15 @@ const prayerElements = document.querySelectorAll('#q8prayers')
 fetchPrayers(today).then(prayers => {
 
   prayerElements.forEach(prayerElement => {
-    var lang, width, dark
+    var lang, width
   
     prayerElement.getAttribute('data-lang') === 'ar' ? lang = 'ar' : lang = 'en'
     prayerElement.getAttribute('data-width') === null ? width = 150 : width = parseInt(prayerElement.getAttribute('data-width'))
-    prayerElement.getAttribute('data-theme') === 'dark' ? dark = true : dark = false
 
     if (prayers.error) {
       prayerElement.innerHTML = `<p class="q8prayers-error">${lang === 'ar' ? prayers.message.ar : prayers.message.en}</p>`
       
     }else{
-      if(dark){
-        prayerElement.classList.add('dark')
-      }
       
       let table = document.createElement('table')
       if(lang === 'ar') table.setAttribute('dir', 'rtl')
