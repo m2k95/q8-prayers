@@ -13,7 +13,7 @@
     "releaseName": "v${version}"
   },
   "npm": {
-    "publish": false
+    "publish": true
   },
   "hooks": {
     "after:bump": "npm run build",
