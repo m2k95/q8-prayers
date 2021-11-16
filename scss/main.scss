@@ -2,7 +2,7 @@
 @import 'themes/colors';
 
 #q8prayers{
-  font-size: 20px;
+  font-size: 15px;
   font-family: Overpass;
   color: var(--prayerTimesColor);
 
@@ -15,7 +15,7 @@
 
     th, td{
       padding: 5px;
-      font-size: .8rem;
+      font-size: .9em;
     }
   
     th{
@@ -30,7 +30,7 @@
     tr:nth-child(1), tr:nth-child(2){
       th{
         text-align: center;
-        font-size: 1rem;
+        font-size: 1em;
       }
     }
 
@@ -54,7 +54,7 @@
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             text-decoration: none;
             color: var(--tableCreditsColor);
-            font-size: .5rem;
+            font-size: .7em;
           }
         }
       }
