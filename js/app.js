@@ -9,10 +9,31 @@ const prayerElements = document.querySelectorAll('#q8prayers')
 fetchPrayers(today).then(prayers => {
 
   prayerElements.forEach(prayerElement => {
-    var lang, width
+    var lang, width, fontSize
   
     prayerElement.getAttribute('data-lang') === 'ar' ? lang = 'ar' : lang = 'en'
     prayerElement.getAttribute('data-width') === null ? width = 150 : width = parseInt(prayerElement.getAttribute('data-width'))
+
+    if (prayerElement.getAttribute('data-size') !== null) {
+      if (prayerElement.getAttribute('data-size') === 'sm'){
+        fontSize = 10
+        width = 125
+      }
+      if (prayerElement.getAttribute('data-size') === 'md'){
+        fontSize = 15
+        width = 150
+      }
+      if (prayerElement.getAttribute('data-size') === 'lg'){
+        fontSize = 20
+        width = 200
+      }
+      if (prayerElement.getAttribute('data-size') === 'xl'){
+        fontSize = 25
+        width = 250
+      }
+    } else {
+      fontSize = 15
+    }
 
     if (prayers.error) {
       prayerElement.innerHTML = `<p class="q8prayers-error">${lang === 'ar' ? prayers.message.ar : prayers.message.en}</p>`
@@ -105,7 +126,8 @@ fetchPrayers(today).then(prayers => {
       table.appendChild(isha_tr)
       table.appendChild(credits_tr)
     
-      table.style.width = width + 'px'
+      table.style.width = `${width}px`
+      table.style.fontSize = `${fontSize}px`
     
       prayerElement.appendChild(table)
     }
