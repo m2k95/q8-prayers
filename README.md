@@ -26,6 +26,11 @@ Create a div element with an id of q8prayers in your project
   - `data-theme="dark"` to display prayer times in dark mode
   - `data-theme="black"` to display prayer times in all black mode
   - `data-theme="white"` to display prayer times in all white mode
+- Table Size:
+  - `data-size="sm"` to display table in small size
+  - `data-size="md"` to display table in medium size *(default)*
+  - `data-size="lg"` to display table in large size
+  - `data-size="xl"` to display table in xlarge size
 
 ## Starter Template
 ```html
