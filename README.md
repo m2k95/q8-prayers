@@ -19,18 +19,21 @@ Create a div element with an id of q8prayers in your project
 > You can add more than one element in a single page
 
 ## Options
-- `data-lang="ar"` to display prayer times in Arabic *(defaults to en)*
-- `data-width="200"` to set the width (in pixels) of the table *(defaults to 150)*
+- Languages
+  - `data-lang="en"` Display prayer times in English *(default)*
+  - `data-lang="ar"` Display prayer times in Arabic
 - Themes:
-  - `data-theme="light"` to display prayer times in default mode
-  - `data-theme="dark"` to display prayer times in dark mode
-  - `data-theme="black"` to display prayer times in all black mode
-  - `data-theme="white"` to display prayer times in all white mode
-- Table Size:
-  - `data-size="sm"` to display table in small size
-  - `data-size="md"` to display table in medium size *(default)*
-  - `data-size="lg"` to display table in large size
-  - `data-size="xl"` to display table in xlarge size
+  - `data-theme="light"` Display prayer times in ligh mode *(default)*
+  - `data-theme="dark"` Display prayer times in dark mode
+  - `data-theme="black"` Display prayer times in all black mode
+  - `data-theme="white"` Display prayer times in all white mode
+- Table Sizes:
+  - `data-size="sm"` Display table in small size
+  - `data-size="md"` Display table in medium size *(default)*
+  - `data-size="lg"` Display table in large size
+  - `data-size="xl"` Display table in xlarge size
+- Other Options
+  - `data-width="200"` to set the width (in pixels) of the table *(defaults to 150)*
 
 ## Starter Template
 ```html
