@@ -6,11 +6,11 @@ Kuwait Prayer Times based on [AlAdhan](https://aladhan.com) API services
 ## Getting Started
 Include our JavaScript before the closing body
 
-`<script src="https://cdn.jsdelivr.net/npm/q8-prayertimes/dist/all.min.js"></script>`
+`<script src="//q8p.io/js"></script>`
 
 Include our CSS in your project
 
-`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/q8-prayertimes/dist/all.min.css">`
+`<link rel="stylesheet" href="//q8p.io/css">`
 
 Create a div element with an id of q8prayers in your project
 
@@ -45,7 +45,7 @@ Create a div element with an id of q8prayers in your project
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Q8 Prayer Times CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/q8-prayertimes/dist/all.min.css">
+    <link rel="stylesheet" href="//q8p.io/css">
 
     <title>Q8 Prayer Times Starter Template</title>
   </head>
@@ -54,7 +54,7 @@ Create a div element with an id of q8prayers in your project
     <div id="q8prayers" data-lang="ar"></div>
 
     <!-- Q8 Prayer Times JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/q8-prayertimes/dist/all.min.js"></script>
+    <script src="//q8p.io/js"></script>
   </body>
 </html>
 ```
