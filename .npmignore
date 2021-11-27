@@ -7,5 +7,4 @@ dev
 dev.*
 .git
 .gitignore
-README.MD
 .release-it.json
