@@ -8,3 +8,6 @@ dev.*
 .git
 .gitignore
 .release-it.json
+js
+scss
+gulpfile.js
