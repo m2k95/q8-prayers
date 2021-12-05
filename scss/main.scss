@@ -8,14 +8,15 @@
   table{
     font-size: 15px;
     width: 150px;
+    border-collapse: collapse;
     
     tr{
       border: 1px solid var(--tableBorderColor);
     }
 
     th, td{
-      padding: 5px;
-      font-size: .9em;
+      padding: 7px;
+      font-size: 1em;
     }
   
     th{
@@ -30,7 +31,7 @@
     tr:nth-child(1), tr:nth-child(2){
       th{
         text-align: center;
-        font-size: 1em;
+        font-size: 1.2em;
       }
     }
 
@@ -59,10 +60,6 @@
         }
       }
     }
-  }
-
-  table, th, td{
-    border-collapse: collapse;
   }
 
   @import 'error';
