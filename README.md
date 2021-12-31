@@ -32,8 +32,6 @@ Create a div element with an id of q8prayers in your project
   - `data-size="md"` Display table in medium size *(default)*
   - `data-size="lg"` Display table in large size
   - `data-size="xl"` Display table in xlarge size
-- Other Options
-  - `data-width="200"` to set the width (in pixels) of the table *(defaults to 150)*
 
 ## Starter Template
 ```html
