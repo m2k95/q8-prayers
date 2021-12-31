@@ -1,136 +1,91 @@
-let today = new Date()
-const dd = String(today.getDate()).padStart(2, '0')
-const mm = String(today.getMonth() + 1).padStart(2, '0')
-const yyyy = today.getFullYear()
-today = dd + '-' + mm + '-' + yyyy
-
+const API_URL = 'https://api.q8prayers.com'
 const prayerElements = document.querySelectorAll('#q8prayers')
 
-fetchPrayers(today).then(prayers => {
+if (prayerElements) {
 
-  prayerElements.forEach(prayerElement => {
-    var lang, width, fontSize
+  fetch(API_URL).then(res => res.json())
+  .then(data => {
+    console.log(data)
+
+    if (data.status === 200) { 
+      let lang, width, fontSize, table, tableTitle
+
+      prayerElements.forEach(prayerElement => {
+        prayerElement.getAttribute('data-lang') === 'ar' ? lang = 'ar' : lang = 'en'
+        const tableSize = prayerElement.getAttribute('data-size')
+
+        // detect table size
+        if (tableSize !== null) {
+          if (tableSize === 'sm'){
+            fontSize = 10
+            width = 125
+          }
+          if (tableSize === 'md'){
+            fontSize = 15
+            width = 150
+          }
+          if (tableSize === 'lg'){
+            fontSize = 20
+            width = 200
+          }
+          if (tableSize === 'xl'){
+            fontSize = 25
+            width = 250
+          }
+        } else {
+          fontSize = 15
+          width = 150
+        }
+
+        // prayers variables
+        const FajrName = data.timings.Fajr[lang].name
+        const FajrTime = data.timings.Fajr[lang].time
+        const DhuhrName = data.timings.Dhuhr[lang].name
+        const DhuhrTime = data.timings.Dhuhr[lang].time
+        const AsrName = data.timings.Asr[lang].name
+        const AsrTime = data.timings.Asr[lang].time
+        const MaghribName = data.timings.Maghrib[lang].name
+        const MaghribTime = data.timings.Maghrib[lang].time
+        const IshaName = data.timings.Isha[lang].name
+        const IshaTime = data.timings.Isha[lang].time
+        const Gdate = data.date.gregorian[lang].date
+        const Hdate = data.date.hijri[lang].date
+
+        // main table configuration
+        table = document.createElement('table')
+        table.style.width = `${width}px`
+        table.style.fontSize = `${fontSize}px`
+        if(lang === 'ar') table.setAttribute('dir', 'rtl')
+        lang === 'ar' ? tableTitle = 'أوقات الصلاة في الكويت' : tableTitle = 'Kuwait Prayer Times'
   
-    prayerElement.getAttribute('data-lang') === 'ar' ? lang = 'ar' : lang = 'en'
-    prayerElement.getAttribute('data-width') === null ? width = 150 : width = parseInt(prayerElement.getAttribute('data-width'))
+        // table data
+        table.innerHTML = `
+          <tr><th colspan="2"><small>${tableTitle}</small></th></tr>
+          <tr><th colspan="2">${Gdate}</th></tr>
+          <tr><th>${FajrName}</th><td>${FajrTime}</td></tr>
+          <tr><th>${DhuhrName}</th><td>${DhuhrTime}</td></tr>
+          <tr><th>${AsrName}</th><td>${AsrTime}</td></tr>
+          <tr><th>${MaghribName}</th><td>${MaghribTime}</td></tr>
+          <tr><th>${IshaName}</th><td>${IshaTime}</td></tr>
+          <tr><th colspan="2"><small><a href="https://q8p.io" target="_blank">Q8 Prayers</a></small></th></tr>
+        `
+    
+        // append table to DOM
+        prayerElement.appendChild(table)
+      })
 
-    if (prayerElement.getAttribute('data-size') !== null) {
-      if (prayerElement.getAttribute('data-size') === 'sm'){
-        fontSize = 10
-        width = 125
-      }
-      if (prayerElement.getAttribute('data-size') === 'md'){
-        fontSize = 15
-        width = 150
-      }
-      if (prayerElement.getAttribute('data-size') === 'lg'){
-        fontSize = 20
-        width = 200
-      }
-      if (prayerElement.getAttribute('data-size') === 'xl'){
-        fontSize = 25
-        width = 250
-      }
     } else {
-      fontSize = 15
-    }
-
-    if (prayers.error) {
-      prayerElement.innerHTML = `<p class="q8prayers-error">${lang === 'ar' ? prayers.message.ar : prayers.message.en}</p>`
-      
-    }else{
-      
-      let table = document.createElement('table')
-      if(lang === 'ar') table.setAttribute('dir', 'rtl')
-    
-      let title_tr = document.createElement('tr')
-      let title_th = document.createElement('th')
-      let title_small = document.createElement('small')
-  
-      let credits_tr = document.createElement('tr')
-      let credits_th = document.createElement('th')
-      let credits_small = document.createElement('small')
-      let credits_a = document.createElement('a')
-  
-      let date_tr = document.createElement('tr')
-      let date_th = document.createElement('th')
-    
-      let fajr_tr = document.createElement('tr')
-      let fajr_th = document.createElement('th')
-      let fajr_td = document.createElement('td')
-    
-      let dhuher_tr = document.createElement('tr')
-      let dhuher_th = document.createElement('th')
-      let dhuher_td = document.createElement('td')
-    
-      let asr_tr = document.createElement('tr')
-      let asr_th = document.createElement('th')
-      let asr_td = document.createElement('td')
-    
-      let maghrib_tr = document.createElement('tr')
-      let maghrib_th = document.createElement('th')
-      let maghrib_td = document.createElement('td')
-    
-      let isha_tr = document.createElement('tr')
-      let isha_th = document.createElement('th')
-      let isha_td = document.createElement('td')
-    
-      title_th.setAttribute('colspan', '2')
-      title_small.innerHTML = lang === 'ar' ? prayers.Title.ar : prayers.Title.en
-      title_th.appendChild(title_small)
-      title_tr.appendChild(title_th)
-    
-      credits_th.setAttribute('colspan', '2')
-      credits_a.setAttribute('href', 'https://q8prayers.com')
-      credits_a.setAttribute('target', '_blank')
-      credits_a.innerHTML = 'Q8 Prayer Times'
-      credits_small.appendChild(credits_a)
-      credits_th.appendChild(credits_small)
-      credits_tr.appendChild(credits_th)
-  
-      date_th.setAttribute('colspan', '2')
-      date_th.innerHTML = lang === 'ar' ? prayers.Date.ar : prayers.Date.en
-      date_tr.appendChild(date_th)
-     
-      fajr_th.innerHTML = lang === 'ar' ? prayers.Fajr.ar.name : prayers.Fajr.en.name
-      fajr_td.innerHTML = lang === 'ar' ? prayers.Fajr.ar.time : prayers.Fajr.en.time
-      fajr_tr.appendChild(fajr_th)
-      fajr_tr.appendChild(fajr_td)
-     
-      dhuher_th.innerHTML = lang === 'ar' ? prayers.Dhuhr.ar.name : prayers.Dhuhr.en.name
-      dhuher_td.innerHTML = lang === 'ar' ? prayers.Dhuhr.ar.time : prayers.Dhuhr.en.time
-      dhuher_tr.appendChild(dhuher_th)
-      dhuher_tr.appendChild(dhuher_td)
-     
-      asr_th.innerHTML = lang === 'ar' ? prayers.Asr.ar.name : prayers.Asr.en.name
-      asr_td.innerHTML = lang === 'ar' ? prayers.Asr.ar.time : prayers.Asr.en.time
-      asr_tr.appendChild(asr_th)
-      asr_tr.appendChild(asr_td)
-     
-      maghrib_th.innerHTML = lang === 'ar' ? prayers.Maghrib.ar.name : prayers.Maghrib.en.name
-      maghrib_td.innerHTML = lang === 'ar' ? prayers.Maghrib.ar.time : prayers.Maghrib.en.time
-      maghrib_tr.appendChild(maghrib_th)
-      maghrib_tr.appendChild(maghrib_td)
-     
-      isha_th.innerHTML = lang === 'ar' ? prayers.Isha.ar.name : prayers.Isha.en.name
-      isha_td.innerHTML = lang === 'ar' ? prayers.Isha.ar.time : prayers.Isha.en.time
-      isha_tr.appendChild(isha_th)
-      isha_tr.appendChild(isha_td)
-    
-      table.appendChild(title_tr)
-      table.appendChild(date_tr)
-      table.appendChild(fajr_tr)
-      table.appendChild(dhuher_tr)
-      table.appendChild(asr_tr)
-      table.appendChild(maghrib_tr)
-      table.appendChild(isha_tr)
-      table.appendChild(credits_tr)
-    
-      table.style.width = `${width}px`
-      table.style.fontSize = `${fontSize}px`
-    
-      prayerElement.appendChild(table)
+      prayerElements.forEach(prayerElement => {
+        prayerElement.innerHTML = `<p class="q8prayers-error">Q8Prayers Internal Error</p>`
+      })
     }
   })
 
-})
+  .catch(err => {
+    console.log(err)
+    prayerElements.forEach(prayerElement => {
+      prayerElement.innerHTML = `<p class="q8prayers-error">Q8Prayers Internal Error</p>`
+    })
+  })
+  
+}
