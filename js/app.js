@@ -5,8 +5,6 @@ if (prayerElements) {
 
   fetch(API_URL).then(res => res.json())
   .then(data => {
-    console.log(data)
-
     if (data.status === 200) { 
       let lang, width, fontSize, table, tableTitle
 
@@ -18,11 +16,11 @@ if (prayerElements) {
         if (tableSize !== null) {
           if (tableSize === 'sm'){
             fontSize = 10
-            width = 125
+            width = 150
           }
           if (tableSize === 'md'){
             fontSize = 15
-            width = 150
+            width = 175
           }
           if (tableSize === 'lg'){
             fontSize = 20
@@ -34,7 +32,7 @@ if (prayerElements) {
           }
         } else {
           fontSize = 15
-          width = 150
+          width = 175
         }
 
         // prayers variables
