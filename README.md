@@ -58,7 +58,7 @@ Create a div element with an id of q8prayers in your project
 ```
 
 ## Hint
-Add the following styling to center prayer times in `<div>` element
+Add the following styling to center prayer times table in a `<div>` element
 
 ```css
 #q8prayers table{
