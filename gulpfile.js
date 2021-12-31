@@ -26,14 +26,14 @@ gulp.task('scripts-dev', async function(){
   .pipe(concat('dev.js'))
   .pipe(ignore.exclude(['**/*.map']))
   .on('error', function(err){ gutil.log(gutil.colors.red('[Error]'), err.toString()) })
-  .pipe(gulp.dest('./js'))
+  .pipe(gulp.dest('./dev'))
 })
 
 gulp.task('sass-dev', async function(){
   gulp.src('./scss/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(rename("dev.css"))
-    .pipe(gulp.dest('./scss'))
+    .pipe(gulp.dest('./dev'))
 })
 
 // production tasks
