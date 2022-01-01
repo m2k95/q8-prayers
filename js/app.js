@@ -6,11 +6,13 @@ if (prayerElements) {
   fetch(API_URL).then(res => res.json())
   .then(data => {
     if (data.status === 200) { 
-      let lang, width, fontSize, table, tableTitle
+      let lang, width, fontSize, table, tableTitle, tableDate
 
       prayerElements.forEach(prayerElement => {
         prayerElement.getAttribute('data-lang') === 'ar' ? lang = 'ar' : lang = 'en'
         const tableSize = prayerElement.getAttribute('data-size')
+        tableDate = prayerElement.getAttribute('data-date')
+        tableDate != null ? tableDate = tableDate.toLowerCase() : tableDate = null
 
         // detect table size
         if (tableSize !== null) {
@@ -49,6 +51,9 @@ if (prayerElements) {
         const Gdate = data.date.gregorian[lang].date
         const Hdate = data.date.hijri[lang].date
 
+        // configure date type
+        tableDate === 'hijri' ? tableDate = Hdate : tableDate = Gdate
+
         // main table configuration
         table = document.createElement('table')
         table.style.width = `${width}px`
@@ -59,7 +64,7 @@ if (prayerElements) {
         // table data
         table.innerHTML = `
           <tr><th colspan="2"><small>${tableTitle}</small></th></tr>
-          <tr><th colspan="2">${Gdate}</th></tr>
+          <tr><th colspan="2">${tableDate}</th></tr>
           <tr><th>${FajrName}</th><td>${FajrTime}</td></tr>
           <tr><th>${DhuhrName}</th><td>${DhuhrTime}</td></tr>
           <tr><th>${AsrName}</th><td>${AsrTime}</td></tr>
