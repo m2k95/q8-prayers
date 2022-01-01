@@ -22,6 +22,9 @@ Create a div element with an id of q8prayers in your project
 - Languages
   - `data-lang="en"` Display prayer times in English *(default)*
   - `data-lang="ar"` Display prayer times in Arabic
+- Date Types:
+  - `data-date="gregorian"` Display date in Gregorian format *(default)*
+  - `data-date="hijri"` Display date in Hijri format
 - Themes:
   - `data-theme="light"` Display prayer times in ligh mode *(default)*
   - `data-theme="dark"` Display prayer times in dark mode
