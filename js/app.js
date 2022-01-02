@@ -62,19 +62,18 @@ if (prayerElements) {
         lang === 'ar' ? tableTitle = 'أوقات الصلاة في الكويت' : tableTitle = 'Kuwait Prayer Times'
   
         // table data
-        table.innerHTML = `
-          <tr><th colspan="2"><small>${tableTitle}</small></th></tr>
+        table.innerHTML = `<tbody>
+          <tr><th colspan="2"><small><a href="https://q8p.io" target="_blank">${tableTitle}</a></small></th></tr>
           <tr><th colspan="2">${tableDate}</th></tr>
           <tr><th>${FajrName}</th><td>${FajrTime}</td></tr>
           <tr><th>${DhuhrName}</th><td>${DhuhrTime}</td></tr>
           <tr><th>${AsrName}</th><td>${AsrTime}</td></tr>
           <tr><th>${MaghribName}</th><td>${MaghribTime}</td></tr>
           <tr><th>${IshaName}</th><td>${IshaTime}</td></tr>
-          <tr><th colspan="2"><small><a href="https://q8p.io" target="_blank">Q8 Prayers</a></small></th></tr>
-        `
+          </tbody>`
     
         // append table to DOM
-        prayerElement.appendChild(table)
+        prayerElement.append(table)
       })
 
     } else {
