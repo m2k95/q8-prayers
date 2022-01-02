@@ -1,6 +1,9 @@
 # Changelog
 
 ## Unreleased
+* nothing yet
+
+## 2.0.0-rc.1 (2022-1-2)
 ### Added
 * Date types option, choose wheather Gregorian or Hijri date format
 
