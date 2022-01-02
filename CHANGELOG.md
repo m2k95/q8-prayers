@@ -4,6 +4,9 @@
 ### Added
 * Date types option, choose wheather Gregorian or Hijri date format
 
+### Changed
+* Table header is the credit now
+
 ## 2.0.0-rc.0 (2022-1-1)
 ### Changed
 * Fetch from [q8prayers API](https://github.com/m2kio/q8-prayers-api) instead of direct [AlAdhan API](https://aladhan.com)
