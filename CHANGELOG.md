@@ -6,6 +6,7 @@
 
 ### Changed
 * Table header is the credit now
+* Table style
 
 ## 2.0.0-rc.0 (2022-1-1)
 ### Changed
