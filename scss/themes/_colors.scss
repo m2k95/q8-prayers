@@ -1,31 +1,31 @@
 #q8prayers, #q8prayers[data-theme='light']{
-  --prayerTimesColor: rgb(25, 25, 25);
-  --tableBorderColor: hsl(0, 0%, 50%);
+  --prayerTimesColor: hsl(0, 0%, 10%);
   --tableHeaderColor: hsl(0, 0%, 50%);
-  --tableCreditsColor: hsl(0, 0%, 50%);
-  --errorMessageColor: rgb(175, 0, 0);
+  --tableBorderColor: hsl(0, 0%, 50%);
+  --prayerBorderColor: hsl(0, 0%, 80%);
+  --errorMessageColor: hsl(0, 100%, 34%);
 }
 
 #q8prayers[data-theme='dark']{
   --prayerTimesColor: hsl(0, 0%, 85%);
-  --tableBorderColor: rgb(190, 190, 190);
-  --tableHeaderColor: rgb(190, 190, 190);
-  --tableCreditsColor: rgb(190, 190, 190);
-  --errorMessageColor: rgb(200, 0, 0);
+  --tableHeaderColor: hsl(0, 0%, 75%);
+  --tableBorderColor: hsl(0, 0%, 75%);
+  --prayerBorderColor: hsl(0, 0%, 50%);
+  --errorMessageColor: hsl(0, 100%, 39%);
 }
 
 #q8prayers[data-theme='black']{
   --prayerTimesColor: hsl(0, 0%, 0%);
-  --tableBorderColor: rgb(0, 0, 0);
-  --tableHeaderColor: rgb(0, 0, 0);
-  --tableCreditsColor: rgb(0, 0, 0);
-  --errorMessageColor: rgb(200, 0, 0);
+  --tableHeaderColor: hsl(0, 0%, 0%);
+  --tableBorderColor: hsl(0, 0%, 0%);
+  --prayerBorderColor: hsl(0, 0%, 0%);
+  --errorMessageColor: hsl(0, 100%, 39%);
 }
 
 #q8prayers[data-theme='white']{
   --prayerTimesColor: hsl(0, 0%, 100%);
-  --tableBorderColor: rgb(255, 255, 255);
-  --tableHeaderColor: rgb(255, 255, 255);
-  --tableCreditsColor: rgb(255, 255, 255);
-  --errorMessageColor: rgb(200, 0, 0);
+  --tableHeaderColor: hsl(0, 0%, 100%);
+  --tableBorderColor: hsl(0, 0%, 100%);
+  --prayerBorderColor: hsl(0, 0%, 100%);
+  --errorMessageColor: hsl(0, 100%, 39%);
 }
