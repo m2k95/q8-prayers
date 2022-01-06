@@ -12,6 +12,14 @@ Include our CSS in your project
 
 `<link rel="stylesheet" href="https://q8p.io/css">`
 
+Or by using Node.js
+
+`npm i q8-prayertimes`
+
+`<script src="./node_modules/q8-prayertimes/dist/all.min.js"></script>`
+
+`<link rel="stylesheet" href="./node_modules/q8-prayertimes/dist/all.min.css">`
+
 Create a div element with an id of q8prayers in your project
 
 `<div id="q8prayers"></div>`
