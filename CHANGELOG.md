@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.0.0 (2022-1-7)
 ### Changed
 * Table border radius set to .75 rem
 
