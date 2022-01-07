@@ -1,7 +1,8 @@
 # Changelog
 
 ## Unreleased
-* nothing yet
+### Changed
+* Table border radius set to .75 rem
 
 ## 2.0.0-rc.1 (2022-1-2)
 ### Added
